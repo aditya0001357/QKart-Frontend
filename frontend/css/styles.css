@@ -1,3 +1,5 @@
+/* original css ############################################################*/
+
 * {
   margin: 0px;
   padding: 0px;
@@ -42,6 +44,7 @@ footer {
   /* display: flex;
   flex-wrap: wrap; */
 }
+
 .tile {
   position: relative;
   height: 100%;
@@ -56,7 +59,9 @@ footer {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+
 }
+
 .tile img {
   width: 100%;
   height: 100%;
@@ -64,6 +69,7 @@ footer {
   -webkit-transition: 0.2s all;
   /* -webkit-filter: brightness(70%); */
 }
+
 .tile img:hover {
   -webkit-filter: brightness(50%);
   transform: scale(1.1);
@@ -75,6 +81,24 @@ footer {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
+/* card added by me */
+.card-body {
+  overflow: hidden;
+}
+.card-body img {
+  transition: 0.8s;
+  transform: scale(1);
+  border-radius: 5%;
+}
+.card-body:hover img {
+  -webkit-filter: brightness(50%);
+  transform: scale(1.2);
+}
+
+/* end of card */
+
+
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -136,6 +160,17 @@ footer {
   -webkit-filter: brightness(50%);
   /* transform: scale(1.1); */
 }
+
+.card-body img {
+  transition: 0.8s;
+  transform: scale(1);
+  border-radius: 5%;
+}
+
+
+
+
+
 
 /* activity-detail page css */
 
@@ -261,3 +296,5 @@ input[type="number"] {
   padding: 16px;
   margin-bottom: 30px;
 }
+
+
