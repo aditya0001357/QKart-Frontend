@@ -32,31 +32,59 @@ async function fetchAdventures(city) {
 //Implementation of DOM manipulation to add adventures for the given city from list of adventures
 function addAdventureToDOM(adventures)
 {
-  // TODO: MODULE_ADVENTURES
-  // 1. Populate the Adventure Cards and insert those details into the DOM
-  console.log('adven-DOM : ', adventures);
-  let adParent = document.getElementById('data');
-  
-  for (let ad of adventures)
-  {
-    let adCard = document.createElement('div');
-    adCard.id = ad.id;
-    adCard.classList.add("col-lg-3", "col-xs-12", "col-md-6", "mb-2");
 
-    adCard.innerHTML = `
-      <a id=${ad.id} href="/detail/?adventure=${ad.id}" class="activity-card">
-      <img src="${ad.image}" class="activity-card-img" height="150" width="225" />
-      <div class="category-banner">${ad.category}</div>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-6 justify-content-start">${ad.name}</div><div class="col-6 justify-content-end">₹${ad.costPerHead}</div>
-          <div class="col-6 justify-content-start">Duration</div><div class="col-6 justify-content-end">${ad.duration} Hours</div>
+  //  TODO: MODULE_ADVENTURES
+  // 1. Populate the Adventure Cards and insert those details into the DOM
+  const adventureElement = document.querySelector("#data");
+  adventures.forEach((adventure)=>{
+    const {id,name,costPerHead,currency,image,duration,category}=adventure;
+    // console.log(id,name,costPerHead,currency,image,duration,category);
+    
+    const divCol = document.createElement("div");
+    divCol.setAttribute("class","col-6 col-sm-3 mb-3");
+    const divColData = `
+    <a href="detail/?adventure=${id}", id="${id}">
+      <div class="activity-card">
+      <div class="category-banner mx-0">${category}</div>
+        <img src="${image}" >
+          <div class="row p-2">
+            <div class="col-md-6">${name}</div>
+            <div class="col-md-6">&#8377;${costPerHead}</div>
+            <div class="col-md-6">Duration</div>
+            <div class="col-md-6">${duration} Hours</div>
         </div>
       </div>
-    </a>`;
+    </a>   
+    `
+    divCol.innerHTML = divColData;
+    adventureElement.appendChild(divCol);
+  })
+ 
 
-    adParent.appendChild(adCard);
-  }
+
+  // console.log('adven-DOM : ', adventures);
+  // let adParent = document.getElementById('data');
+  
+  // for (let ad of adventures)
+  // {
+  //   let adCard = document.createElement('div');
+  //   adCard.id = ad.id;
+  //   adCard.classList.add("col-lg-3", "col-xs-12", "col-md-6", "mb-2");
+
+  //   adCard.innerHTML = `
+  //     <a id=${ad.id}, href="detail/?adventure=${ad.id}", class="activity-card">
+  //     <img src="${ad.image}" class="activity-card-img" height="150" width="225" />
+  //     <div class="category-banner">${ad.category}</div>
+  //     <div class="container-fluid">
+  //       <div class="row">
+  //         <div class="col-6 justify-content-start">${ad.name}</div><div class="col-6 justify-content-end">₹${ad.costPerHead}</div>
+  //         <div class="col-6 justify-content-start">Duration</div><div class="col-6 justify-content-end">${ad.duration} Hours</div>
+  //       </div>
+  //     </div>
+  //   </a>`;
+
+  //   adParent.appendChild(adCard);
+  // }
   
 
 }
