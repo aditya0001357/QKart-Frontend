@@ -44,7 +44,6 @@ footer {
   /* display: flex;
   flex-wrap: wrap; */
 }
-
 .tile {
   position: relative;
   height: 100%;
@@ -69,7 +68,6 @@ footer {
   -webkit-transition: 0.2s all;
   /* -webkit-filter: brightness(70%); */
 }
-
 .tile img:hover {
   -webkit-filter: brightness(50%);
   transform: scale(1.1);
@@ -136,7 +134,7 @@ footer {
 
   color: #000;
   position: relative;
-  height: 350px;npm
+  height: 350px;
   /* width: calc(25% - 20px); */
   /* padding: 6px; */
   border: 1px solid #ddd;
