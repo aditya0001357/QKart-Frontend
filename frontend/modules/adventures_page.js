@@ -1,10 +1,14 @@
-
 import config from "../conf/index.js";
+
 
 //Implementation to extract city from query params
 function getCityFromURL(search) {
   // TODO: MODULE_ADVENTURES
   // 1. Extract the city id from the URL's Query Param and return it
+  console.log(search, config);
+  let urlParam = new URLSearchParams(search);
+  let city = urlParam.get('city');
+  return city;
 
 }
 
@@ -12,13 +16,48 @@ function getCityFromURL(search) {
 async function fetchAdventures(city) {
   // TODO: MODULE_ADVENTURES
   // 1. Fetch adventures using the Backend API and return the data
-
+  try
+  {
+    let response = await fetch(`${config.backendEndpoint}/adventures/?city=${city}`);
+    let apiData = await response.json();
+    console.log(apiData);
+    return apiData;
+  }
+  catch
+  {
+    return null;
+  }
 }
 
 //Implementation of DOM manipulation to add adventures for the given city from list of adventures
-function addAdventureToDOM(adventures) {
+function addAdventureToDOM(adventures)
+{
   // TODO: MODULE_ADVENTURES
   // 1. Populate the Adventure Cards and insert those details into the DOM
+  console.log('adven-DOM : ', adventures);
+  let adParent = document.getElementById('data');
+  
+  for (let ad of adventures)
+  {
+    let adCard = document.createElement('div');
+    adCard.id = ad.id;
+    adCard.classList.add("col-lg-3", "col-xs-12", "col-md-6", "mb-2");
+
+    adCard.innerHTML = `
+      <a id=${ad.id} href="/detail/?adventure=${ad.id}" class="activity-card">
+      <img src="${ad.image}" class="activity-card-img" height="150" width="225" />
+      <div class="category-banner">${ad.category}</div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6 justify-content-start">${ad.name}</div><div class="col-6 justify-content-end">₹${ad.costPerHead}</div>
+          <div class="col-6 justify-content-start">Duration</div><div class="col-6 justify-content-end">${ad.duration} Hours</div>
+        </div>
+      </div>
+    </a>`;
+
+    adParent.appendChild(adCard);
+  }
+  
 
 }
 

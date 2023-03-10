@@ -3,10 +3,11 @@ import config from "../conf/index.js";
 async function init() {
 
   
-  console.log("init called, the config is : ", config);
+  console.log("init called, the config is : ", config.backendEndpoint);
   //Fetches list of all cities along with their images and description
   let cities = await fetchCities();
-  console.log(cities);
+  console.log('init function :', cities);
+
   
   // Updates the DOM with the cities
   cities.forEach((key) => {
@@ -19,11 +20,13 @@ async function init() {
 async function fetchCities() {
   // TODO: MODULE_CITIES
   // 1. Fetch cities using the Backend API and return the data
+
+    console.log('called');
     try
     {
       let p = await fetch(`${config.backendEndpoint}/cities`);
       let apiData = await p.json();
-      console.log(apiData);
+      console.log('apiData from fetchCitites function : ', apiData);
       return apiData;
     }
     catch(err)
