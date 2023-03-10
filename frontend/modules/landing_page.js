@@ -42,31 +42,51 @@ async function fetchCities() {
 function addCityToDOM(id, city, description, image) {
   // TODO: MODULE_CITIES
   // 1. Populate the City details and insert those details into the DOM
+  let card = document.createElement("div")
+  card.className = "col-12 col-md-6 col-xl-3 mt-3"
+  card.innerHTML = `
   
-  //lets create a div with pre-defined styling class and then set its contents 
-  let contentDiv = document.createElement('div');
-  contentDiv.id = id;
-  contentDiv.classList.add("col-12", "col-md-6", "col-xl-3", "mt-3");
+  <a href="./pages/adventures/?city=${id}" id="${id}">
+  <div class="tile text-white border-0" >
+   
+      <img class="" src="${image}" alt="" />
 
-
-  contentDiv.innerHTML = `
-  <a href="./pages/adventures/?city=${id}", id="${id}">
-  <div class="tile card text-white border-0">
-    <div style="border-radius: 3rem;" class="card-body">
-      <img class="card-img tile-img" src="${image}" alt="" />
-
-      <div class="card-img-overlay d-flex flex-column justify-content-end align-items-center" >
-        <div><p style="font-weight: bold;" class="card-title">${city}</p></div>
+      <div class="card-img-overlay d-flex flex-column justify-content-end align-items-center tile-text">
+        <div><p class="card-title">${city}</p></div>
         <div > <p class="card-text">${description}</p></div>
       </div>
-    </div>
+    
   </div>
   </a>
-  `
+`
+
+let data = document.getElementById("data")
+data.append(card)
+
+  
+  
+  // let contentDiv = document.createElement('div');
+  // contentDiv.id = id;
+  // contentDiv.classList.add("col-12", "col-md-6", "col-xl-3", "mt-3");
+
+
+  // contentDiv.innerHTML = `
+  // <a href="./pages/adventures/?city=${id}", id="${id}">
+  // <div class="tile card text-white border-0">
+  //   <div style="border-radius: 3rem;" class="card-body">
+  //     <img class="card-img tile-img" src="${image}" alt="" />
+
+  //     <div class="card-img-overlay d-flex flex-column justify-content-end align-items-center" >
+  //       <div><p style="font-weight: bold;" class="card-title">${city}</p></div>
+  //       <div > <p class="card-text">${description}</p></div>
+  //     </div>
+  //   </div>
+  // </div>
+  // </a>`;
   
 
-  let parent = document.getElementById('data');
-  parent.appendChild(contentDiv);
+  // let parent = document.getElementById('data');
+  // parent.appendChild(contentDiv);
   
 
 }

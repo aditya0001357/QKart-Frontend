@@ -5,7 +5,7 @@ import config from "../conf/index.js";
 function getCityFromURL(search) {
   // TODO: MODULE_ADVENTURES
   // 1. Extract the city id from the URL's Query Param and return it
-  
+
   // console.log(search, config);
   let urlParam = new URLSearchParams(search);
   let city = urlParam.get('city');
@@ -36,6 +36,7 @@ function addAdventureToDOM(adventures)
 
   //  TODO: MODULE_ADVENTURES
   // 1. Populate the Adventure Cards and insert those details into the DOM
+
   const adventureElement = document.querySelector("#data");
   adventures.forEach((adventure)=>{
     const {id,name,costPerHead,currency,image,duration,category}=adventure;
@@ -73,7 +74,7 @@ function addAdventureToDOM(adventures)
   //   adCard.classList.add("col-lg-3", "col-xs-12", "col-md-6", "mb-2");
 
   //   adCard.innerHTML = `
-  //     <a id=${ad.id}, href="detail/?adventure=${ad.id}", class="activity-card">
+  //     <a href="./detail/?adventure=${ad.id}" id="${ad.id}" class="activity-card">
   //     <img src="${ad.image}" class="activity-card-img" height="150" width="225" />
   //     <div class="category-banner">${ad.category}</div>
   //     <div class="container-fluid">
