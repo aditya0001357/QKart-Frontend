@@ -50,7 +50,7 @@ function addCityToDOM(id, city, description, image) {
 
 
   contentDiv.innerHTML = `
-  <a id=${id} href="./pages/adventures/?city=${id}">
+  <a href="./pages/adventures/?city=${id}", id="${id}">
   <div class="tile card text-white border-0">
     <div style="border-radius: 3rem;" class="card-body">
       <img class="card-img tile-img" src="${image}" alt="" />
@@ -61,7 +61,8 @@ function addCityToDOM(id, city, description, image) {
       </div>
     </div>
   </div>
-  </a>`;
+  </a>
+  `
   
 
   let parent = document.getElementById('data');
