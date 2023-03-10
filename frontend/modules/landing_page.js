@@ -47,9 +47,9 @@ function addCityToDOM(id, city, description, image) {
   card.innerHTML = `
   
   <a href="./pages/adventures/?city=${id}" id="${id}">
-  <div class="tile text-white border-0" >
+  <div class="tile card-body text-white border-0" style="border-radius:2rem;">
    
-      <img class="" src="${image}" alt="" />
+      <img class="card-img tile-img" src="${image}" alt="" />
 
       <div class="card-img-overlay d-flex flex-column justify-content-end align-items-center tile-text">
         <div><p class="card-title">${city}</p></div>
@@ -63,8 +63,6 @@ function addCityToDOM(id, city, description, image) {
 let data = document.getElementById("data")
 data.append(card)
 
-  
-  
   // let contentDiv = document.createElement('div');
   // contentDiv.id = id;
   // contentDiv.classList.add("col-12", "col-md-6", "col-xl-3", "mt-3");
